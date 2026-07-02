@@ -1,0 +1,928 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZGWD5S9X8W"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-ZGWD5S9X8W');
+  </script>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Volunteer Opportunities in Simi Valley — Simi Volunteering</title>
+  <meta name="description" content="Browse a curated catalog of volunteer opportunities in Simi Valley, CA. Find the perfect match for your skills and schedule." />
+  <meta name="keywords" content="volunteer opportunities simi valley, simi valley volunteer catalog, community service simi valley" />
+  <meta name="author" content="James LeQuang" />
+  <meta name="robots" content="index,follow" />
+  <meta name="google-site-verification" content="lw691S1agrlLDPZoy1Ch8asML59CRUqN0vuidCmiAS0" />
+
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* ── Page header ───────────────────────────────────────────── */
+    .page-hero {
+      background: linear-gradient(135deg, #e8f0fe 0%, #f8fffe 50%, #e6f4ea 100%);
+      padding: 72px 0 56px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .page-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(circle, rgba(66,133,244,.12) 1px, transparent 1px);
+      background-size: 28px 28px;
+      opacity: .5;
+    }
+
+    .page-hero-inner {
+      position: relative;
+    }
+
+    .page-hero-eyebrow {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      color: var(--blue-500);
+      margin-bottom: 12px;
+    }
+
+    .page-hero-title {
+      font-family: var(--font-display);
+      font-size: clamp(36px, 5vw, 60px);
+      font-weight: 400;
+      color: var(--text-primary);
+      letter-spacing: -1px;
+      line-height: 1.1;
+      margin-bottom: 16px;
+    }
+
+    .page-hero-desc {
+      font-size: 17px;
+      color: var(--text-secondary);
+      max-width: 560px;
+      line-height: 1.65;
+    }
+
+    /* ── Search + Filter bar ───────────────────────────────────── */
+    .search-bar-wrap {
+      position: sticky;
+      top: var(--nav-height);
+      z-index: 50;
+      background: var(--surface-0);
+      border-bottom: 1px solid var(--surface-3);
+      padding: 16px 0;
+      transition: box-shadow var(--transition);
+    }
+
+    .search-bar-wrap.scrolled {
+      box-shadow: var(--shadow-1);
+    }
+
+    .search-bar-inner {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .search-field {
+      position: relative;
+      flex: 1;
+      min-width: 220px;
+    }
+
+    .search-field svg {
+      position: absolute;
+      left: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--text-tertiary);
+      pointer-events: none;
+    }
+
+    #volunteer-search {
+      width: 100%;
+      padding: 10px 16px 10px 42px;
+      border: 1.5px solid var(--surface-3);
+      border-radius: var(--radius-xl);
+      font-family: var(--font-body);
+      font-size: 14px;
+      color: var(--text-primary);
+      background: var(--surface-1);
+      transition: border-color var(--transition), box-shadow var(--transition);
+      outline: none;
+    }
+
+    #volunteer-search:focus {
+      border-color: var(--blue-400);
+      background: white;
+      box-shadow: 0 0 0 3px rgba(66,133,244,.15);
+    }
+
+    .filter-row {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .filter-btn {
+      padding: 7px 16px;
+      border-radius: 100px;
+      border: 1.5px solid var(--surface-3);
+      background: var(--surface-0);
+      font-family: var(--font-body);
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text-secondary);
+      cursor: pointer;
+      transition: all var(--transition);
+      white-space: nowrap;
+    }
+
+    .filter-btn:hover { border-color: var(--blue-400); color: var(--blue-500); background: var(--blue-50); }
+
+    .filter-btn.active {
+      background: var(--blue-500);
+      border-color: var(--blue-500);
+      color: white;
+    }
+
+    /* ── Results count ─────────────────────────────────────────── */
+    .results-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 28px;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .results-count {
+      font-size: 14px;
+      color: var(--text-secondary);
+    }
+
+    /* ── Vol Cards grid ────────────────────────────────────────── */
+    .vol-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      align-items: start;
+    }
+
+    .vol-card {
+      background: var(--surface-0);
+      border-radius: var(--radius-md);
+      border: 1px solid var(--surface-3);
+      overflow: hidden;
+      transition: box-shadow var(--transition), transform var(--transition);
+      display: flex;
+      flex-direction: column;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .vol-card:hover {
+      box-shadow: var(--shadow-hover);
+      transform: translateY(-3px);
+    }
+
+    .vol-card-img-wrap {
+      overflow: hidden;
+      height: 160px;
+      background: var(--surface-2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .vol-card-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      transition: transform 0.5s cubic-bezier(0.4,0,0.2,1);
+    }
+
+    .vol-card:hover .vol-card-img { transform: scale(1.06); }
+
+    .vol-card-body {
+      padding: 18px 20px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .vol-card-category {
+      margin-bottom: 8px;
+    }
+
+    .vol-card-name {
+      font-family: var(--font-display);
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--text-primary);
+      margin-bottom: 6px;
+      line-height: 1.4;
+    }
+
+    .vol-card-excerpt {
+      font-size: 13px;
+      color: var(--text-secondary);
+      line-height: 1.55;
+      flex: 1;
+      margin-bottom: 16px;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .vol-card-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 14px;
+      border-top: 1px solid var(--surface-2);
+      margin-top: auto;
+    }
+
+    .vol-card-meta {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 12px;
+      color: var(--text-tertiary);
+    }
+
+    .vol-card-link {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--blue-500);
+    }
+
+    .vol-card-link svg { transition: transform var(--transition); }
+    .vol-card:hover .vol-card-link svg { transform: translateX(3px); }
+
+    /* ── Empty state ───────────────────────────────────────────── */
+    #empty-state {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 80px 40px;
+      text-align: center;
+      grid-column: 1 / -1;
+    }
+
+    .empty-icon {
+      font-size: 48px;
+      margin-bottom: 16px;
+    }
+
+    .empty-title {
+      font-family: var(--font-display);
+      font-size: 22px;
+      color: var(--text-primary);
+      margin-bottom: 8px;
+    }
+
+    .empty-desc {
+      font-size: 14px;
+      color: var(--text-secondary);
+    }
+
+    /* ── External links box ─────────────────────────────────────── */
+    .more-links-box {
+      background: var(--surface-1);
+      border: 1px solid var(--surface-3);
+      border-radius: var(--radius-lg);
+      padding: 40px;
+      margin-top: 56px;
+    }
+
+    .more-links-title {
+      font-family: var(--font-display);
+      font-size: 22px;
+      font-weight: 500;
+      color: var(--text-primary);
+      margin-bottom: 8px;
+    }
+
+    .more-links-desc {
+      font-size: 14px;
+      color: var(--text-secondary);
+      margin-bottom: 24px;
+    }
+
+    .external-link-card {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 16px 20px;
+      background: var(--surface-0);
+      border-radius: var(--radius-md);
+      border: 1px solid var(--surface-3);
+      margin-bottom: 12px;
+      transition: box-shadow var(--transition), border-color var(--transition);
+      text-decoration: none;
+      color: var(--text-primary);
+    }
+
+    .external-link-card:hover {
+      box-shadow: var(--shadow-1);
+      border-color: var(--blue-100);
+    }
+
+    .external-link-icon {
+      width: 40px;
+      height: 40px;
+      background: var(--blue-50);
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .external-link-text strong {
+      display: block;
+      font-size: 14px;
+      font-weight: 500;
+      margin-bottom: 2px;
+    }
+
+    .external-link-text span {
+      font-size: 12px;
+      color: var(--text-tertiary);
+      word-break: break-all;
+    }
+
+    /* ── Disclaimer ─────────────────────────────────────────────── */
+    .disclaimer-banner {
+      background: #fef7e0;
+      border: 1px solid #fbbc04;
+      border-radius: var(--radius-md);
+      padding: 16px 20px;
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 40px;
+    }
+
+    .disclaimer-icon { font-size: 18px; flex-shrink: 0; margin-top: 1px; }
+
+    .disclaimer-text { font-size: 14px; color: var(--text-primary); line-height: 1.6; }
+
+    /* ── Responsive ─────────────────────────────────────────────── */
+    @media (max-width: 900px) {
+      .vol-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 600px) {
+      .vol-grid { grid-template-columns: 1fr; }
+      .search-bar-inner { flex-direction: column; align-items: stretch; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══ NAVBAR ════════════════════════════════════════════════════ -->
+<nav class="site-nav" role="navigation" aria-label="Main navigation">
+  <a class="nav-brand" href="index.html" aria-label="Simi Volunteering home">
+    <div style="width:36px;height:36px;border-radius:50%;background:var(--blue-500);display:flex;align-items:center;justify-content:center;color:white;font-weight:700;font-size:16px;flex-shrink:0;" aria-hidden="true">SV</div>
+    Simi Volunteering
+  </a>
+  <nav class="nav-links" role="menubar">
+    <a class="nav-link" href="index.html" data-page="index.html" role="menuitem">Home</a>
+    <a class="nav-link active" href="volunteer.html" data-page="volunteer.html" role="menuitem">Opportunities</a>
+    <a class="nav-link" href="volunteer-descriptions.html" data-page="volunteer-descriptions.html" role="menuitem">Descriptions</a>
+    <a class="nav-cta btn" href="volunteer-descriptions.html" role="menuitem">View Details →</a>
+  </nav>
+  <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="mobile-nav" role="menu" aria-label="Mobile navigation">
+  <a class="nav-link" href="index.html" data-page="index.html" role="menuitem">Home</a>
+  <a class="nav-link active" href="volunteer.html" data-page="volunteer.html" role="menuitem">Opportunities</a>
+  <a class="nav-link" href="volunteer-descriptions.html" data-page="volunteer-descriptions.html" role="menuitem">Descriptions</a>
+</div>
+
+
+<!-- ══ PAGE HERO ═════════════════════════════════════════════════ -->
+<section class="page-hero" aria-labelledby="page-title">
+  <div class="container page-hero-inner">
+    <p class="page-hero-eyebrow">Simi Valley, CA</p>
+    <h1 class="page-hero-title" id="page-title">Volunteer Opportunities</h1>
+    <p class="page-hero-desc">
+      Browse 16+ ways to give back in Simi Valley. Each listing includes duties,
+      qualifications, and a direct link to get started.
+    </p>
+  </div>
+</section>
+
+
+<!-- ══ SEARCH + FILTER BAR ═══════════════════════════════════════ -->
+<div class="search-bar-wrap" id="search-bar" role="search" aria-label="Filter volunteer opportunities">
+  <div class="container">
+    <div class="search-bar-inner">
+      <div class="search-field">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+        </svg>
+        <input
+          type="search"
+          id="volunteer-search"
+          placeholder="Search organizations…"
+          aria-label="Search volunteer opportunities"
+        />
+      </div>
+      <div class="filter-row" role="group" aria-label="Filter by category">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="food">Food</button>
+        <button class="filter-btn" data-filter="youth">Youth</button>
+        <button class="filter-btn" data-filter="environment">Environment</button>
+        <button class="filter-btn" data-filter="history">History</button>
+        <button class="filter-btn" data-filter="animals">Animals</button>
+        <button class="filter-btn" data-filter="military">Military</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ══ MAIN CONTENT ═══════════════════════════════════════════════ -->
+<main class="section section-sm">
+  <div class="container">
+
+
+
+    <!-- Results meta -->
+    <div class="results-meta">
+      <p class="results-count" id="results-count" aria-live="polite">Showing 16 opportunities</p>
+    </div>
+
+    <!-- Cards grid -->
+    <div class="vol-grid" id="vol-grid" role="list" aria-label="Volunteer opportunities">
+
+      <!-- Empty state -->
+      <div id="empty-state" role="status" aria-live="polite">
+        <div class="empty-icon" aria-hidden="true">🔍</div>
+        <div class="empty-title">No results found</div>
+        <p class="empty-desc">Try a different search term or remove some filters.</p>
+      </div>
+
+      <!-- 1. Sewa -->
+      <a class="vol-card reveal" role="listitem"
+         href="volunteer-descriptions.html#sewa"
+         data-name="sewa sewa international"
+         data-category="food community">
+        <div class="vol-card-img-wrap">
+          <img class="vol-card-img" src="https://i0.wp.com/www.globalatlanta.com/wp-content/uploads/Sewa-int-logo.png?fit=1000%2C750&ssl=1" alt="Sewa International" loading="lazy"/>
+        </div>
+        <div class="vol-card-body">
+          <div class="vol-card-category"><span class="chip chip-green">Food &amp; Community</span></div>
+          <div class="vol-card-name">Sewa International</div>
+          <p class="vol-card-excerpt">Partner with food banks and local food programs. Open Tues, Wed, Fri, Sat 4:30–6:30 PM.</p>
+          <div class="vol-card-footer">
+            <span class="vol-card-meta">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+              All ages
+            </span>
+            <span class="vol-card-link">Details <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+          </div>
+        </div>
+      </a>
+
+      <!-- 2. Youth Council -->
+      <a class="vol-card reveal reveal-delay-1" role="listitem"
+         href="volunteer-descriptions.html#youthcouncil"
+         data-name="youth council simi valley"
+         data-category="youth government">
+        <div class="vol-card-img-wrap">
+          <img class="vol-card-img" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQe-Y0iNBQ_qjJEqMfvjMP9zpzunU8LcQoLoQ&s" alt="Youth Council" loading="lazy"/>
+        </div>
+        <div class="vol-card-body">
+          <div class="vol-card-category"><span class="chip chip-blue">Youth &amp; Government</span></div>
+          <div class="vol-card-name">Simi Valley Youth Council</div>
+          <p class="vol-card-excerpt">Advisory board to the City Council on youth issues. Represents every high school and middle school.</p>
+          <div class="vol-card-footer">
+            <span class="vol-card-meta">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+              Grades 7–12
+            </span>
+            <span class="vol-card-link">Details <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+          </div>
+        </div>
+      </a>
+
+      <!-- 3. Simi at the Garden -->
+      <a class="vol-card reveal reveal-delay-2" role="listitem"
+         href="volunteer-descriptions.html#garden"
+         data-name="simi at the garden community garden"
+         data-category="environment community">
+        <div class="vol-card-img-wrap">
+          <img class="vol-card-img" src="https://static.wixstatic.com/media/9d3e86_cebe272ffe12496c925e31075ca68f79~mv2.jpeg/v1/fit/w_2500,h_1330,al_c/9d3e86_cebe272ffe12496c925e31075ca68f79~mv2.jpeg" alt="Simi at the Garden" loading="lazy"/>
+        </div>
+        <div class="vol-card-body">
+          <div class="vol-card-category"><span class="chip chip-green">Environment</span></div>
+          <div class="vol-card-name">Simi at the Garden</div>
+          <p class="vol-card-excerpt">Monthly workdays at an ongoing community garden project providing environmental education.</p>
+          <div class="vol-card-footer">
+            <span class="vol-card-meta">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+              All ages
+            </span>
+            <span class="vol-card-link">Details <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+          </div>
+        </div>
+      </a>
+
+      <!-- 4. Historical Society -->
+      <a class="vol-card reveal reveal-delay-3" role="listitem"
+         href="volunteer-descriptions.html#historical"
+         data-name="simi valley historical society strathern park"
+         data-category="history culture">
+        <div class="vol-card-img-wrap">
+          <img class="vol-card-img" src="https://www.simihistory.com/wp-content/uploads/2017/10/IMG_31542.jpg" alt="Simi Valley Historical Society" loading="lazy"/>
+        </div>
+        <div class="vol-card-body">
+          <div class="vol-card-category"><span class="chip chip-yellow">History &amp; Culture</span></div>
+          <div class="vol-card-name">Simi Valley Historical Society</div>
+          <p class="vol-card-excerpt">Give tours at Strathern Historical Park and help preserve historic items. Mon–Sun varied hours.</p>
+          <div class="vol-card-footer">
+            <span class="vol-card-meta">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+              Ages 12+
+            </span>
+            <span class="vol-card-link">Details <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+          </div>
+        </div>
+      </a>
+
+      <!-- 5. Rancho Simi Recreation -->
+      <a class="vol-card reveal reveal-delay-4" role="listitem"
+         href="volunteer-descriptions.html#rancho"
+         data-name="rancho simi recreation parks district"
+         data-category="youth community">
+        <div class="vol-card-img-wrap">
+          <img class="vol-card-img" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRXQ3X1lm2piQa94Mt6xfgVKpv5rvBnhtfw5w&s" alt="Rancho Simi Recreation" loading="lazy"/>
+        </div>
+        <div class="vol-card-body">
+          <div class="vol-card-category"><span class="chip chip-blue">Recreation</span></div>
+          <div class="vol-card-name">Rancho Simi Recreation &amp; Park District</div>
+          <p class="vol-card-excerpt">Assist with special events, office help, recreation classes, hiking trails, and preschool programs.</p>
+          <div class="vol-card-footer">
+            <span class="vol-card-meta">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+              Ages 12+
+            </span>
+            <span class="vol-card-link">Details <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+          </div>
+        </div>
+      </a>
+
+      <!-- 6. Police Explorers -->
+      <a class="vol-card reveal reveal-delay-5" role="listitem"
+         href="volunteer-descriptions.html#explorers"
+         data-name="simi valley police explorers law enforcement"
+         data-category="youth government">
+        <div class="vol-card-img-wrap">
+          <img class="vol-card-img" src="https://images.squarespace-cdn.com/content/v1/5ac1611e710699cf1490a170/1549296603485-WFFLZRTWAPSOLTZ9FC0E/C-158610+Simi+Valley+Police+Department+Medallion+California+AR+f.png" alt="Simi Valley Police Explorers" loading="lazy"/>
+        </div>
+        <div class="vol-card-body">
+          <div class="vol-card-category"><span class="chip chip-blue">Law Enforcement</span></div>
+          <div class="vol-card-name">Simi Valley Police Explorers</div>
+          <p class="vol-card-excerpt">Train in law enforcement areas and assist during community events. Weekly meetings Mondays at 5 PM.</p>
+          <div class="vol-card-footer">
+            <span class="vol-card-meta">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+              14+ / 7th grade
+            </span>
+            <span class="vol-card-link">Details <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+          </div>
+        </div>
+      </a>
+
+      <!-- 7. Habitat for Humanity -->
+      <a class="vol-card reveal" role="listitem"
+         href="volunteer-descriptions.html#habitat"
+         data-name="habitat for humanity ventura county restore"
+         data-category="community">
+        <div class="vol-card-img-wrap">
+          <img class="vol-card-img" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1HWhkEAOul10OnpVmnDmpF7jgH3yXEDYi4w&s" alt="Habitat for Humanity" loading="lazy"/>
+        </div>
+        <div class="vol-card-body">
+          <div class="vol-card-category"><span class="chip chip-green">Community</span></div>
+          <div class="vol-card-name">Habitat for Humanity of Ventura County</div>
+          <p class="vol-card-excerpt">Help at the ReStore, work as a photographer, or assist at special events. Sign-up required.</p>
+          <div class="vol-card-footer">
+            <span class="vol-card-meta">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+              Ages 12+ (w/ adult)
+            </span>
+            <span class="vol-card-link">Details <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+          </div>
+        </div>
+      </a>
+
+      <!-- 8. Salvation Army -->
+      <a class="vol-card reveal reveal-delay-1" role="listitem"
+         href="volunteer-descriptions.html#salvation"
+         data-name="salvation army simi valley service center"
+         data-category="food community">
+        <div class="vol-card-img-wrap">
+          <img class="vol-card-img" src="https://s3.us-east-1.amazonaws.com/files.galaxydigital.com/4816/agency/112844.jpg?20240812202654?area=agency" alt="The Salvation Army" loading="lazy"/>
+        </div>
+        <div class="vol-card-body">
+          <div class="vol-card-category"><span class="chip chip-red">Food &amp; Relief</span></div>
+          <div class="vol-card-name">The Salvation Army Simi Valley</div>
+          <p class="vol-card-excerpt">Prepare food bags during pantry hours to help community members in need.</p>
+          <div class="vol-card-footer">
+            <span class="vol-card-meta">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+              All ages
+            </span>
+            <span class="vol-card-link">Details <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+          </div>
+        </div>
+      </a>
+
+      <!-- 9. Ventura County Animal Services -->
+      <a class="vol-card reveal reveal-delay-2" role="listitem"
+         href="volunteer-descriptions.html#animal"
+         data-name="ventura county animal services shelter"
+         data-category="animals">
+        <div class="vol-card-img-wrap">
+          <img class="vol-card-img" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTFBBk1cZD3ZWlCmPUZ9jdSTJVA46TunX0OOw&s" alt="Ventura County Animal Services" loading="lazy"/>
+        </div>
+        <div class="vol-card-body">
+          <div class="vol-card-category"><span class="chip chip-green">Animals</span></div>
+          <div class="vol-card-name">Ventura County Animal Services</div>
+          <p class="vol-card-excerpt">Animal care, fundraising, and assisting staff at the county shelter. Training protocols required.</p>
+          <div class="vol-card-footer">
+            <span class="vol-card-meta">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+              Ages 13+
+            </span>
+            <span class="vol-card-link">Details <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+          </div>
+        </div>
+      </a>
+
+      <!-- 10. For the Need Foundation -->
+      <a class="vol-card reveal reveal-delay-3" role="listitem"
+         href="volunteer-descriptions.html#need"
+         data-name="for the need foundation"
+         data-category="community">
+        <div class="vol-card-img-wrap">
+          <img class="vol-card-img" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQtd4kVyudr5ZnlMWnTqyVKcRCTDtis_kad7g&s" alt="For the Need Foundation" loading="lazy"/>
+        </div>
+        <div class="vol-card-body">
+          <div class="vol-card-category"><span class="chip chip-blue">Community</span></div>
+          <div class="vol-card-name">For the Need Foundation</div>
+          <p class="vol-card-excerpt">Attend volunteer events posted on the website. Duties vary by event.</p>
+          <div class="vol-card-footer">
+            <span class="vol-card-meta">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+              Ages 13+
+            </span>
+            <span class="vol-card-link">Details <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+          </div>
+        </div>
+      </a>
+
+      <!-- 11. Thousand Oaks Library -->
+      <a class="vol-card reveal reveal-delay-4" role="listitem"
+         href="volunteer-descriptions.html#tolibrary"
+         data-name="thousand oaks library teen volunteers"
+         data-category="youth education">
+        <div class="vol-card-img-wrap">
+          <img class="vol-card-img" src="https://assets.procurement.opengov.com/logo-uploads/352f546a-849f-4847-a87c-795949695fc2_500x500_CTO_Logo.png" alt="Thousand Oaks Library" loading="lazy"/>
+        </div>
+        <div class="vol-card-body">
+          <div class="vol-card-category"><span class="chip chip-yellow">Education</span></div>
+          <div class="vol-card-name">Thousand Oaks Library</div>
+          <p class="vol-card-excerpt">Various volunteer opportunities including teen volunteers at events and programs.</p>
+          <div class="vol-card-footer">
+            <span class="vol-card-meta">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+              Ages 13+
+            </span>
+            <span class="vol-card-link">Details <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+          </div>
+        </div>
+      </a>
+
+      <!-- 12. Conejo Valley Historical Society -->
+      <a class="vol-card reveal reveal-delay-5" role="listitem"
+         href="volunteer-descriptions.html#CVHS"
+         data-name="conejo valley historical society stagecoach inn"
+         data-category="history">
+        <div class="vol-card-img-wrap">
+          <img class="vol-card-img" src="https://www.volunteermatch.org/images/gallery/88043777-FB2F-C477-C7FD-780D74A25D12_m?ts=1502301487000" alt="Conejo Valley Historical Society" loading="lazy"/>
+        </div>
+        <div class="vol-card-body">
+          <div class="vol-card-category"><span class="chip chip-yellow">History</span></div>
+          <div class="vol-card-name">Conejo Valley Historical Society</div>
+          <p class="vol-card-excerpt">Greet visitors, help in the office and gift shop, and assist with tours at the Stagecoach Inn.</p>
+          <div class="vol-card-footer">
+            <span class="vol-card-meta">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+              Ages 10+
+            </span>
+            <span class="vol-card-link">Details <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+          </div>
+        </div>
+      </a>
+
+      <!-- 13. Moorpark Library -->
+      <a class="vol-card reveal" role="listitem"
+         href="volunteer-descriptions.html#Moorpark Library"
+         data-name="moorpark library"
+         data-category="youth education">
+        <div class="vol-card-img-wrap">
+          <img class="vol-card-img" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQFjhbmEt27pReH3k3dUHhAvzlbd87K3aZf1g&s" alt="Moorpark Library" loading="lazy"/>
+        </div>
+        <div class="vol-card-body">
+          <div class="vol-card-category"><span class="chip chip-yellow">Education</span></div>
+          <div class="vol-card-name">Moorpark Library</div>
+          <p class="vol-card-excerpt">Organize shelves, volunteer at events, give book recommendations, and more.</p>
+          <div class="vol-card-footer">
+            <span class="vol-card-meta">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+              Grade 6+
+            </span>
+            <span class="vol-card-link">Details <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+          </div>
+        </div>
+      </a>
+
+      <!-- 14. For the Troops -->
+      <a class="vol-card reveal reveal-delay-1" role="listitem"
+         href="volunteer-descriptions.html#troops"
+         data-name="for the troops foundation simi valley military"
+         data-category="military community">
+        <div class="vol-card-img-wrap">
+          <img class="vol-card-img" src="https://www.forthetroops.org/wp-content/uploads/2022/01/forthetroops-logo.jpg" alt="For the Troops Foundation" loading="lazy"/>
+        </div>
+        <div class="vol-card-body">
+          <div class="vol-card-category"><span class="chip chip-red">Military Support</span></div>
+          <div class="vol-card-name">For the Troops Foundation</div>
+          <p class="vol-card-excerpt">Write notes to soldiers, fill boxes, create flyers, and more to support active-duty troops.</p>
+          <div class="vol-card-footer">
+            <span class="vol-card-meta">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+              Ages 12+
+            </span>
+            <span class="vol-card-link">Details <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+          </div>
+        </div>
+      </a>
+
+      <!-- 15. Children's Hunger Fund -->
+      <a class="vol-card reveal reveal-delay-2" role="listitem"
+         href="volunteer-descriptions.html#chf"
+         data-name="children's hunger fund chf food packing"
+         data-category="food youth">
+        <div class="vol-card-img-wrap">
+          <img class="vol-card-img" src="https://cdn.greatnonprofits.org/images/logos/CHF_Logo_square_301U-020818-155850.jpg" alt="Children's Hunger Fund" loading="lazy"/>
+        </div>
+        <div class="vol-card-body">
+          <div class="vol-card-category"><span class="chip chip-red">Food</span></div>
+          <div class="vol-card-name">Children's Hunger Fund</div>
+          <p class="vol-card-excerpt">Pack resource boxes distributed to churches and families in need. Must volunteer with parent/guardian.</p>
+          <div class="vol-card-footer">
+            <span class="vol-card-meta">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+              w/ guardian
+            </span>
+            <span class="vol-card-link">Details <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+          </div>
+        </div>
+      </a>
+
+      <!-- 16. SVYO -->
+      <a class="vol-card reveal reveal-delay-3" role="listitem"
+         href="volunteer-descriptions.html#svyo"
+         data-name="simi valley youth orchestra svyo music"
+         data-category="youth arts">
+        <div class="vol-card-img-wrap">
+          <img class="vol-card-img" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMI2cJw81fMGIto-aSqw7zZwU9PD_Rlx_gQaa2rkgrIDSPmHdICPVsP94h7BD8OGe02XE&usqp=CAU" alt="Simi Valley Youth Orchestra" loading="lazy"/>
+        </div>
+        <div class="vol-card-body">
+          <div class="vol-card-category"><span class="chip chip-blue">Arts &amp; Music</span></div>
+          <div class="vol-card-name">Simi Valley Youth Orchestra</div>
+          <p class="vol-card-excerpt">Help young musicians grow as artists and performers. Requires audition for membership.</p>
+          <div class="vol-card-footer">
+            <span class="vol-card-meta">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+              Under 19 + audition
+            </span>
+            <span class="vol-card-link">Details <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+          </div>
+        </div>
+      </a>
+
+    </div><!-- /vol-grid -->
+
+    <!-- External links -->
+    <div class="more-links-box reveal">
+      <div class="more-links-title">Looking for even more?</div>
+      <p class="more-links-desc">Check out these great external resources for additional volunteer opportunities in Simi Valley.</p>
+
+      <a class="external-link-card" href="https://www.simivalley.org/departments/city-manager-s-office/community-programs-and-facilities/volunteering" target="_blank" rel="noopener noreferrer" aria-label="City of Simi Valley volunteering page (opens in new tab)">
+        <div class="external-link-icon" aria-hidden="true">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--blue-500)" stroke-width="2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+        </div>
+        <div class="external-link-text">
+          <strong>City of Simi Valley — Official Volunteering Page</strong>
+          <span>simivalley.org/…/volunteering</span>
+        </div>
+      </a>
+
+      <a class="external-link-card" href="https://www.volunteermatch.org/search/orgs.jsp?r=10.0&l=Simi+Valley%2C+CA%2C+USA" target="_blank" rel="noopener noreferrer" aria-label="VolunteerMatch Simi Valley (opens in new tab)">
+        <div class="external-link-icon" aria-hidden="true">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--blue-500)" stroke-width="2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+        </div>
+        <div class="external-link-text">
+          <strong>VolunteerMatch — Simi Valley Organizations</strong>
+          <span>volunteermatch.org/search/…/Simi+Valley</span>
+        </div>
+      </a>
+    </div>
+
+  </div>
+</main>
+
+
+<!-- ══ FOOTER ════════════════════════════════════════════════════ -->
+<footer class="site-footer" role="contentinfo">
+  <div class="container">
+    <div class="footer-inner">
+      <div>
+        <div class="footer-brand">
+          <div style="width:32px;height:32px;border-radius:50%;background:var(--blue-500);display:flex;align-items:center;justify-content:center;color:white;font-weight:700;font-size:14px;" aria-hidden="true">SV</div>
+          Simi Volunteering
+        </div>
+        <p class="footer-tagline">Connecting Simi Valley residents with volunteer opportunities that make a real difference.</p>
+      </div>
+      <div>
+        <div class="footer-col-title">Website</div>
+        <nav class="footer-links" aria-label="Footer navigation">
+          <a class="footer-link" href="index.html">Home</a>
+          <a class="footer-link" href="volunteer.html">Volunteer Opportunities</a>
+          <a class="footer-link" href="volunteer-descriptions.html">Volunteer Descriptions</a>
+        </nav>
+      </div>
+      <div>
+        <div class="footer-col-title">Contact</div>
+        <div class="footer-links">
+          <span style="font-size:14px;color:var(--text-secondary);">Created by James LeQuang</span>
+          <a class="footer-link" href="mailto:j.lequang229959@simivalleyusd.org">j.lequang229959@simivalleyusd.org</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">2024 Simi Volunteering. Made for the community.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="scripts.js"></script>
+<script>
+  // Update results count as user searches
+  const grid = document.getElementById('vol-grid');
+  const countEl = document.getElementById('results-count');
+  const searchInput = document.getElementById('volunteer-search');
+  const filterBtns = document.querySelectorAll('.filter-btn');
+
+  function updateCount() {
+    const visible = document.querySelectorAll('.vol-card:not([style*="display: none"])').length;
+    if (countEl) countEl.textContent = `Showing ${visible} opportunit${visible === 1 ? 'y' : 'ies'}`;
+  }
+
+  if (searchInput) searchInput.addEventListener('input', () => setTimeout(updateCount, 50));
+  filterBtns.forEach(btn => btn.addEventListener('click', () => setTimeout(updateCount, 50)));
+
+  // Sticky search bar shadow
+  const searchBar = document.getElementById('search-bar');
+  if (searchBar) {
+    window.addEventListener('scroll', () => {
+      searchBar.classList.toggle('scrolled', window.scrollY > 80);
+    }, { passive: true });
+  }
+</script>
+</body>
+</html>

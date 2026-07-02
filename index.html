@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZGWD5S9X8W"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-ZGWD5S9X8W');
+  </script>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Simi Volunteering</title>
+  <meta name="description" content="Find volunteer opportunities in Simi Valley, track your hours, and recruit volunteers for your business or non-profit." />
+  <meta name="keywords" content="volunteer opportunities simi valley, simi valley volunteer, non-profits simi valley" />
+  <meta name="robots" content="index,follow" />
+  <link rel="canonical" href="https://simivolunteering.w3spaces.com/" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Simi Volunteering" />
+  <meta property="og:description" content="Find volunteer opportunities in Simi Valley and make a difference." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://simivolunteering.w3spaces.com/" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+   /*hero*/
+    .hero {
+      min-height: calc(100vh - var(--nav-height));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+      background: #fafbff;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 80% 60% at 70% 40%, rgba(66,133,244,.07) 0%, transparent 70%),
+        radial-gradient(ellipse 50% 50% at 20% 80%, rgba(52,168,83,.06) 0%, transparent 60%),
+        radial-gradient(ellipse 40% 40% at 80% 90%, rgba(251,188,4,.05) 0%, transparent 60%);
+    }
+
+    /* Animated dots grid */
+    .hero-dots {
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(circle, rgba(66,133,244,.14) 1px, transparent 1px);
+      background-size: 32px 32px;
+      animation: dotsDrift 20s linear infinite;
+      opacity: .6;
+    }
+
+    @keyframes dotsDrift {
+      from { background-position: 0 0; }
+      to   { background-position: 32px 32px; }
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 700px;
+      text-align: center;
+    }
+
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 14px;
+      background: var(--blue-50);
+      border-radius: 100px;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--blue-500);
+      margin-bottom: 28px;
+      animation: fadeUp 0.7s 0.1s both;
+    }
+
+    .hero-eyebrow-dot {
+      width: 8px; height: 8px;
+      background: var(--blue-500);
+      border-radius: 50%;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50%       { opacity: 0.6; transform: scale(0.85); }
+    }
+
+    .hero-title {
+      font-family: var(--font-display);
+      font-size: clamp(44px, 7vw, 80px);
+      font-weight: 400;
+      line-height: 1.1;
+      letter-spacing: -1.5px;
+      color: var(--text-primary);
+      margin-bottom: 32px;
+      animation: fadeUp 0.7s 0.2s both;
+    }
+
+    .hero-title em {
+      font-style: normal;
+      color: var(--blue-500);
+    }
+
+    .hero-subtitle {
+      font-size: clamp(16px, 2vw, 20px);
+      color: var(--text-secondary);
+      line-height: 1.65;
+      max-width: 560px;
+      margin-bottom: 40px;
+      animation: fadeUp 0.7s 0.3s both;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      justify-content: center;
+      animation: fadeUp 0.7s 0.4s both;
+    }
+
+    .hero-image-wrap {
+      position: absolute;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      width: 44%;
+      overflow: hidden;
+      animation: fadeIn 1.2s 0.5s both;
+    }
+
+    .hero-image-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .hero-image-gradient {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to right, #fafbff 10%, transparent 45%);
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
+
+    /* ── Stats bar ─────────────────────────────────────────────── */
+    .stats-bar {
+      background: var(--surface-0);
+      border-top: 1px solid var(--surface-3);
+      border-bottom: 1px solid var(--surface-3);
+    }
+
+    .stats-inner {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      text-align: center;
+    }
+
+    .stat-item {
+      padding: 32px 24px;
+      border-right: 1px solid var(--surface-3);
+    }
+
+    .stat-item:last-child { border-right: none; }
+
+    .stat-number {
+      font-family: var(--font-display);
+      font-size: 40px;
+      font-weight: 400;
+      color: var(--text-primary);
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+
+    .stat-label {
+      font-size: 13px;
+      color: var(--text-secondary);
+    }
+
+    /* Mission*/
+    .mission-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .mission-visual {
+      position: relative;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      aspect-ratio: 4/3;
+      box-shadow: var(--shadow-3);
+    }
+
+    .mission-visual img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.8s cubic-bezier(0.4,0,0.2,1);
+    }
+
+    .mission-visual:hover img { transform: scale(1.04); }
+
+    .mission-badge {
+      position: absolute;
+      bottom: 24px;
+      left: 24px;
+      background: rgba(255,255,255,0.96);
+      backdrop-filter: blur(12px);
+      border-radius: var(--radius-md);
+      padding: 16px 20px;
+      box-shadow: var(--shadow-2);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .mission-badge-icon {
+      width: 44px;
+      height: 44px;
+      background: var(--blue-50);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+    }
+
+    .mission-badge-text strong {
+      display: block;
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--text-primary);
+    }
+
+    .mission-badge-text span {
+      font-size: 12px;
+      color: var(--text-secondary);
+    }
+
+    /* ── Featured cards ────────────────────────────────────────── */
+    .featured-section { background: var(--surface-1); }
+
+    /* ── How it works ──────────────────────────────────────────── */
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+    }
+
+    .step-card {
+      background: var(--surface-0);
+      border-radius: var(--radius-md);
+      padding: 32px 28px;
+      border: 1px solid var(--surface-3);
+      transition: box-shadow var(--transition), transform var(--transition);
+    }
+
+    .step-card:hover {
+      box-shadow: var(--shadow-hover);
+      transform: translateY(-3px);
+    }
+
+    .step-number {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-size: 20px;
+      font-weight: 500;
+      margin-bottom: 20px;
+    }
+
+    .step-number-1 { background: var(--blue-50); color: var(--blue-500); }
+    .step-number-2 { background: #e6f4ea; color: var(--green-400); }
+    .step-number-3 { background: #fef7e0; color: #c17d00; }
+
+    .step-title {
+      font-family: var(--font-display);
+      font-size: 18px;
+      font-weight: 500;
+      color: var(--text-primary);
+      margin-bottom: 10px;
+    }
+
+    .step-desc {
+      font-size: 14px;
+      color: var(--text-secondary);
+      line-height: 1.65;
+    }
+
+    /* ── CTA Banner ────────────────────────────────────────────── */
+    .cta-banner {
+      background: linear-gradient(135deg, var(--blue-500) 0%, #0d47a1 100%);
+      border-radius: var(--radius-xl);
+      padding: 64px 80px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-banner::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 20% 50%, rgba(255,255,255,.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(255,255,255,.08) 0%, transparent 40%);
+    }
+
+    .cta-banner-title {
+      position: relative;
+      font-family: var(--font-display);
+      font-size: clamp(28px, 4vw, 44px);
+      font-weight: 400;
+      color: white;
+      margin-bottom: 16px;
+    }
+
+    .cta-banner-desc {
+      position: relative;
+      font-size: 16px;
+      color: rgba(255,255,255,.8);
+      max-width: 480px;
+      margin: 0 auto 32px;
+      line-height: 1.65;
+    }
+
+    .cta-banner-actions {
+      position: relative;
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn-white {
+      background: white;
+      color: var(--blue-500);
+    }
+
+    .btn-white:hover { background: var(--blue-50); box-shadow: var(--shadow-2); transform: translateY(-1px); }
+
+    .btn-outline-white {
+      background: transparent;
+      color: white;
+      border: 1.5px solid rgba(255,255,255,.6);
+    }
+
+    .btn-outline-white:hover { background: rgba(255,255,255,.1); border-color: white; }
+
+    /* ── Responsive adjustments ──────────────────────────────── */
+    @media (max-width: 960px) {
+      .hero-image-wrap { display: none; }
+      .hero-content { max-width: 100%; }
+      .mission-grid { grid-template-columns: 1fr; gap: 40px; }
+      .stat-item:nth-child(2) { border-right: none; }
+      .steps-grid { grid-template-columns: 1fr; }
+      .cta-banner { padding: 48px 32px; }
+    }
+
+    @media (max-width: 600px) {
+      .hero { min-height: auto; padding: 60px 0 80px; }
+      .hero-title { letter-spacing: -.5px; }
+    }
+  </style>
+</head>
+<body>
+<div id="google_translate_element"></div>
+<!-- ══ NAVBAR ════════════════════════════════════════════════════ -->
+<nav class="site-nav" role="navigation" aria-label="Main navigation">
+  <a class="nav-brand" href="index.html" aria-label="Simi Volunteering home">
+    <div class="nav-brand .logo-mark" style="width:36px;height:36px;border-radius:50%;background:var(--blue-500);display:flex;align-items:center;justify-content:center;color:white;font-weight:700;font-size:16px;flex-shrink:0;">
+      SV
+    </div>
+    Simi Volunteering
+  </a>
+
+  <nav class="nav-links" role="menubar">
+    <a class="nav-link" href="index.html" data-page="index.html" role="menuitem">Home</a>
+    <a class="nav-link" href="volunteer.html" data-page="volunteer.html" role="menuitem">Opportunities</a>
+    <a class="nav-link" href="volunteer-descriptions.html" data-page="volunteer-descriptions.html" role="menuitem">Descriptions</a>
+    <a class="nav-cta btn" href="volunteer.html" role="menuitem">Get Involved →</a>
+  </nav>
+
+  <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- Mobile nav drawer -->
+<div class="mobile-nav" role="menu" aria-label="Mobile navigation">
+  <a class="nav-link" href="index.html" data-page="index.html" role="menuitem">Home</a>
+  <a class="nav-link" href="volunteer.html" data-page="volunteer.html" role="menuitem">Opportunities</a>
+  <a class="nav-link" href="volunteer-descriptions.html" data-page="volunteer-descriptions.html" role="menuitem">Descriptions</a>
+  <a class="btn btn-primary" href="volunteer.html" style="margin-top:8px;" role="menuitem">Get Involved →</a>
+</div>
+
+
+<!-- ══ HERO ══════════════════════════════════════════════════════ -->
+<section class="hero" aria-label="Hero">
+  <div class="hero-bg"></div>
+  <div class="hero-dots" aria-hidden="true"></div>
+
+  <div class="container">
+    <div class="hero-content">
+      <div class="hero-eyebrow" role="note">
+        <span class="hero-eyebrow-dot" aria-hidden="true"></span>
+        Simi Valley, California
+      </div>
+
+      <h1 class="hero-title">
+        Make a difference<br>in <em>your</em> community
+      </h1>
+
+      <p class="hero-subtitle">
+        Simi Volunteering connects residents with local opportunities to give
+        back
+      </p>
+
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="volunteer.html" style="font-size:15px;padding:12px 28px;">
+          Browse Opportunities
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <a class="btn btn-outlined" href="#mission" style="font-size:15px;padding:12px 28px;">Our Mission</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!--STATS BAR
+<section class="stats-bar" aria-label="Site statistics">
+  <div class="container">
+    <div class="stats-inner">
+      <div class="stat-item reveal">
+        <div class="stat-number" data-count="16" data-suffix="+">16+</div>
+        <div class="stat-label">Volunteer Organizations</div>
+      </div>
+      <div class="stat-item reveal reveal-delay-1">
+        <div class="stat-number" data-count="400" data-suffix="+">400+</div>
+        <div class="stat-label">Visitors to this site</div>
+      </div>
+    </div>
+  </div>
+</section>
+-->
+
+<!-- ══ MISSION ════════════════════════════════════════════════════ -->
+<section class="section" id="mission" aria-labelledby="mission-title">
+  <div class="container">
+    <div class="mission-grid">
+
+      <div class="mission-visual reveal">
+        <img
+          src="https://www.simivalleyacorn.com/wp-content/uploads/images/2021-03-12/3p1.jpg"
+          alt="Community volunteers in Simi Valley"
+          loading="lazy"
+        />
+        <div class="mission-badge" aria-hidden="true">
+          <div class="mission-badge-icon"></div>
+          <div class="mission-badge-text">
+            <strong>Community First</strong>
+            <span>Simi Valley, CA</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="reveal reveal-delay-2">
+        <div class="section-label">Our Mission</div>
+        <h2 class="section-title" id="mission-title">
+          Volunteering made simple
+        </h2>
+        <p class="section-desc" style="margin-bottom:24px;">
+          Simi Volunteering aims to make volunteering and helping others
+          easy and straightforward — in the hope that <strong>you</strong> can
+          make a real difference in your community.
+        </p>
+        <p class="section-desc" style="margin-bottom:36px;">
+          Whether you're a student looking for service hours, a retiree
+          with time to spare, or a business that wants to connect with
+          volunteers — this is the place for you.
+        </p>
+        <div style="display:flex;gap:12px;flex-wrap:wrap;">
+          <a class="btn btn-primary" href="volunteer.html">Find Opportunities</a>
+          <a class="btn btn-ghost" href="volunteer-descriptions.html">Read Descriptions →</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ══ HOW IT WORKS ════════════════════════════════════════════════ -->
+<section class="section" style="background:var(--surface-1);" aria-labelledby="how-title">
+  <div class="container">
+    <div class="section-header" style="text-align:center;">
+      <div class="section-label" style="justify-content:center;display:flex;">How It Works</div>
+      <h2 class="section-title" id="how-title" style="text-align:center;max-width:500px;margin:0 auto 12px;">
+        Three easy steps to start giving back
+      </h2>
+    </div>
+
+    <div class="steps-grid">
+      <div class="step-card reveal">
+        <div class="step-number step-number-1">1</div>
+        <div class="step-title">Browse Opportunities</div>
+        <p class="step-desc">
+          Explore our curated catalog of volunteer opportunities in Simi Valley.
+          Filter by organization type, age requirement, or schedule.
+        </p>
+      </div>
+
+      <div class="step-card reveal reveal-delay-2">
+        <div class="step-number step-number-2">2</div>
+        <div class="step-title">Read the Details</div>
+        <p class="step-desc">
+          Each listing includes duties, qualifications, hours, and a direct link
+          to the organization's website so you can get all the facts first.
+        </p>
+      </div>
+
+      <div class="step-card reveal reveal-delay-4">
+        <div class="step-number step-number-3">3</div>
+        <div class="step-title">Show Up & Volunteer</div>
+        <p class="step-desc">
+          Contact the organization directly and show up ready to help.
+          Every hour you give strengthens the Simi Valley community.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══ FEATURED OPPORTUNITIES ════════════════════════════════════ -->
+<section class="section featured-section" aria-labelledby="featured-title">
+  <div class="container">
+    <div class="section-header" style="display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:16px;">
+      <div>
+        <div class="section-label">Highlights</div>
+        <h2 class="section-title" id="featured-title">Featured Opportunities</h2>
+      </div>
+      <a class="btn btn-outlined" href="volunteer.html">View All →</a>
+    </div>
+
+    <div class="grid-3">
+
+      <!-- Card 1 -->
+      <a href="volunteer-descriptions.html#sewa" class="card reveal" data-ripple aria-label="Sewa volunteer opportunity">
+        <div style="overflow:hidden;height:180px;">
+          <img
+            class="card-img"
+            src="https://i0.wp.com/www.globalatlanta.com/wp-content/uploads/Sewa-int-logo.png?fit=1000%2C750&ssl=1"
+            alt="Sewa organization logo"
+            loading="lazy"
+          />
+        </div>
+        <div class="card-body">
+          <div class="chip chip-green" style="margin-bottom:10px;">Food &amp; Community</div>
+          <div class="card-title">Sewa International</div>
+          <p class="card-text">
+            Partner with food banks and local food programs to bring food to those in need in the community.
+          </p>
+        </div>
+        <div class="card-footer">
+          <span style="font-size:12px;color:var(--text-tertiary);">All ages welcome</span>
+          <span class="card-arrow">
+            Learn more
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </span>
+        </div>
+      </a>
+
+      <!-- Card 2 -->
+      <a href="volunteer-descriptions.html#garden" class="card reveal reveal-delay-2" data-ripple aria-label="Simi at the Garden opportunity">
+        <div style="overflow:hidden;height:180px;">
+          <img
+            class="card-img"
+            src="https://static.wixstatic.com/media/9d3e86_cebe272ffe12496c925e31075ca68f79~mv2.jpeg/v1/fit/w_2500,h_1330,al_c/9d3e86_cebe272ffe12496c925e31075ca68f79~mv2.jpeg"
+            alt="Community garden"
+            loading="lazy"
+          />
+        </div>
+        <div class="card-body">
+          <div class="chip chip-green" style="margin-bottom:10px;">Environment</div>
+          <div class="card-title">Simi at the Garden</div>
+          <p class="card-text">
+            An ongoing community garden project offering monthly workdays and environmental education.
+          </p>
+        </div>
+        <div class="card-footer">
+          <span style="font-size:12px;color:var(--text-tertiary);">All ages welcome</span>
+          <span class="card-arrow">
+            Learn more
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </span>
+        </div>
+      </a>
+
+      <!-- Card 3 -->
+      <a href="volunteer-descriptions.html#historical" class="card reveal reveal-delay-4" data-ripple aria-label="Simi Valley Historical Society">
+        <div style="overflow:hidden;height:180px;">
+          <img
+            class="card-img"
+            src="https://www.simihistory.com/wp-content/uploads/2017/10/IMG_31542.jpg"
+            alt="Simi Valley Historical Society"
+            loading="lazy"
+          />
+        </div>
+        <div class="card-body">
+          <div class="chip chip-yellow" style="margin-bottom:10px;">History &amp; Culture</div>
+          <div class="card-title">Simi Valley Historical Society</div>
+          <p class="card-text">
+            Provide tours of Strathern Historical Park and help preserve items of historic value.
+          </p>
+        </div>
+        <div class="card-footer">
+          <span style="font-size:12px;color:var(--text-tertiary);">Ages 12+</span>
+          <span class="card-arrow">
+            Learn more
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </span>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ══ CTA BANNER ════════════════════════════════════════════════ -->
+<section class="section" aria-labelledby="cta-title">
+  <div class="container">
+    <div class="cta-banner reveal">
+      <h2 class="cta-banner-title" id="cta-title">Ready to make your mark?</h2>
+      <p class="cta-banner-desc">
+        Explore all 16+ volunteer opportunities in Simi Valley and find the
+        perfect way to contribute to your community.
+      </p>
+      <div class="cta-banner-actions">
+        <a class="btn btn-white" href="volunteer.html" style="font-size:15px;padding:12px 28px;">
+          Browse All Opportunities
+        </a>
+        <a class="btn btn-outline-white" href="volunteer-descriptions.html" style="font-size:15px;padding:12px 28px;">
+          Read Descriptions
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══ FOOTER ════════════════════════════════════════════════════ -->
+<footer class="site-footer" role="contentinfo">
+  <div class="container">
+    <div class="footer-inner">
+      <div>
+        <div class="footer-brand">
+          <div style="width:32px;height:32px;border-radius:50%;background:var(--blue-500);display:flex;align-items:center;justify-content:center;color:white;font-weight:700;font-size:14px;" aria-hidden="true">SV</div>
+          Simi Volunteering
+        </div>
+        <p class="footer-tagline">
+          Connecting Simi Valley residents with volunteer opportunities that make a real difference.
+        </p>
+      </div>
+
+      <div>
+        <div class="footer-col-title">Website</div>
+        <nav class="footer-links" aria-label="Footer navigation">
+          <a class="footer-link" href="#mission">Our Mission</a>
+          <a class="footer-link" href="volunteer.html">Volunteer Opportunities</a>
+          <a class="footer-link" href="volunteer-descriptions.html">Volunteer Descriptions</a>
+        </nav>
+      </div>
+
+      <div>
+        <div class="footer-col-title">Contact</div>
+        <div class="footer-links">
+          <span style="font-size:14px;color:var(--text-secondary);">Created by James LeQuang</span>
+          <a class="footer-link" href="mailto:j.lequang229959@simivalleyusd.org">
+            j.lequang229959@simivalleyusd.org
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span class="footer-copy"> 2024 Simi Volunteering. Made for the community.</span>
+      <div style="display:flex;gap:16px;">
+        <a class="footer-link" href="index.html">Home</a>
+        <a class="footer-link" href="volunteer.html">Opportunities</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="scripts.js"></script>
+<script type="text/javascript">
+  function googleTranslateElementInit() {
+    new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+    layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+
+  }
+</script>
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+</body>
+</html>

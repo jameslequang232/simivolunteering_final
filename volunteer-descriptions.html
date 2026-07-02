@@ -1,0 +1,1016 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZGWD5S9X8W"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-ZGWD5S9X8W');
+  </script>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Volunteer Descriptions — Simi Volunteering</title>
+  <meta name="description" content="Detailed descriptions of volunteer opportunities in Simi Valley including duties, qualifications, and how to sign up." />
+  <meta name="keywords" content="volunteer descriptions simi valley, volunteer duties qualifications simi valley" />
+  <meta name="author" content="James LeQuang" />
+  <meta name="robots" content="index,follow" />
+  <meta name="google-site-verification" content="lw691S1agrlLDPZoy1Ch8asML59CRUqN0vuidCmiAS0" />
+
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* ── Page hero ─────────────────────────────────────────────── */
+    .page-hero {
+      background: linear-gradient(135deg, #fef7e0 0%, #f8f9fa 40%, #e8f0fe 100%);
+      padding: 72px 0 56px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .page-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(circle, rgba(251,188,4,.15) 1px, transparent 1px);
+      background-size: 28px 28px;
+      opacity: .5;
+    }
+
+    .page-hero-inner { position: relative; }
+
+    .page-hero-eyebrow {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      color: #c17d00;
+      margin-bottom: 12px;
+    }
+
+    .page-hero-title {
+      font-family: var(--font-display);
+      font-size: clamp(36px, 5vw, 60px);
+      font-weight: 400;
+      color: var(--text-primary);
+      letter-spacing: -1px;
+      margin-bottom: 16px;
+    }
+
+    .page-hero-desc {
+      font-size: 17px;
+      color: var(--text-secondary);
+      max-width: 560px;
+      line-height: 1.65;
+    }
+
+    /* ── Sidebar layout ────────────────────────────────────────── */
+    .desc-layout {
+      display: grid;
+      grid-template-columns: 260px 1fr;
+      gap: 40px;
+      align-items: start;
+    }
+
+    /* ── TOC sidebar ───────────────────────────────────────────── */
+    .toc-sidebar {
+      position: sticky;
+      top: calc(var(--nav-height) + 24px);
+      max-height: calc(100vh - var(--nav-height) - 48px);
+      overflow-y: auto;
+      scrollbar-width: thin;
+    }
+
+    .toc-sidebar::-webkit-scrollbar { width: 4px; }
+    .toc-sidebar::-webkit-scrollbar-thumb { background: var(--surface-3); border-radius: 2px; }
+
+    .toc-title {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: .8px;
+      text-transform: uppercase;
+      color: var(--text-tertiary);
+      margin-bottom: 12px;
+      padding: 0 4px;
+    }
+
+    .toc-list { display: flex; flex-direction: column; gap: 2px; }
+
+    .toc-link {
+      display: block;
+      padding: 7px 12px;
+      border-radius: var(--radius-sm);
+      font-size: 13px;
+      color: var(--text-secondary);
+      transition: background var(--transition), color var(--transition);
+      border-left: 2px solid transparent;
+      line-height: 1.4;
+    }
+
+    .toc-link:hover { background: var(--surface-2); color: var(--text-primary); }
+    .toc-link.toc-active { background: var(--blue-50); color: var(--blue-500); border-left-color: var(--blue-500); font-weight: 500; }
+
+    /* ── Description entries ───────────────────────────────────── */
+    .desc-entry {
+      background: var(--surface-0);
+      border: 1px solid var(--surface-3);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      margin-bottom: 24px;
+      scroll-margin-top: calc(var(--nav-height) + 24px);
+      transition: box-shadow var(--transition);
+    }
+
+    .desc-entry:hover { box-shadow: var(--shadow-2); }
+
+    .desc-entry-header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 24px 28px;
+      border-bottom: 1px solid var(--surface-2);
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .desc-entry-logo {
+      width: 56px;
+      height: 56px;
+      border-radius: var(--radius-sm);
+      object-fit: contain;
+      background: var(--surface-2);
+      flex-shrink: 0;
+      padding: 4px;
+    }
+
+    .desc-entry-title-wrap { flex: 1; min-width: 0; }
+
+    .desc-entry-title {
+      font-family: var(--font-display);
+      font-size: 18px;
+      font-weight: 500;
+      color: var(--text-primary);
+      margin-bottom: 4px;
+      line-height: 1.3;
+    }
+
+    .desc-entry-meta {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .desc-entry-toggle {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--surface-2);
+      flex-shrink: 0;
+      transition: background var(--transition), transform var(--transition);
+    }
+
+    .desc-entry-toggle svg { transition: transform var(--transition); }
+    .desc-entry.open .desc-entry-toggle { background: var(--blue-50); }
+    .desc-entry.open .desc-entry-toggle svg { transform: rotate(180deg); color: var(--blue-500); }
+
+    .desc-entry-body {
+      display: none;
+      padding: 24px 28px 28px;
+    }
+
+    .desc-entry.open .desc-entry-body { display: block; }
+
+    /* Smooth expand animation */
+    .desc-entry-body-inner {
+      animation: expandIn 0.25s cubic-bezier(0.4,0,0.2,1);
+    }
+
+    @keyframes expandIn {
+      from { opacity: 0; transform: translateY(-8px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── Info rows inside entry ────────────────────────────────── */
+    .info-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+
+    .info-block {
+      background: var(--surface-1);
+      border-radius: var(--radius-md);
+      padding: 16px 18px;
+    }
+
+    .info-block-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: .8px;
+      text-transform: uppercase;
+      color: var(--text-tertiary);
+      margin-bottom: 6px;
+    }
+
+    .info-block-value {
+      font-size: 14px;
+      color: var(--text-primary);
+      line-height: 1.6;
+    }
+
+    .desc-text {
+      font-size: 15px;
+      color: var(--text-secondary);
+      line-height: 1.7;
+      margin-bottom: 20px;
+    }
+
+    .desc-website-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 20px;
+      background: var(--blue-50);
+      color: var(--blue-500);
+      border-radius: var(--radius-xl);
+      font-size: 14px;
+      font-weight: 500;
+      transition: background var(--transition), box-shadow var(--transition);
+    }
+
+    .desc-website-link:hover { background: var(--blue-100); box-shadow: var(--shadow-1); }
+
+    .desc-website-link svg { flex-shrink: 0; }
+
+    /* ── Disclaimer ─────────────────────────────────────────────── */
+    .disclaimer-banner {
+      background: #fef7e0;
+      border: 1px solid #fbbc04;
+      border-radius: var(--radius-md);
+      padding: 16px 20px;
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 32px;
+    }
+
+    .disclaimer-icon { font-size: 18px; flex-shrink: 0; margin-top: 1px; }
+    .disclaimer-text { font-size: 14px; color: var(--text-primary); line-height: 1.6; }
+
+    /* ── Responsive ─────────────────────────────────────────────── */
+    @media (max-width: 860px) {
+      .desc-layout { grid-template-columns: 1fr; }
+      .toc-sidebar { position: static; max-height: none; }
+      .toc-list { flex-direction: row; flex-wrap: wrap; gap: 6px; }
+      .toc-link { border-left: none; border-radius: 100px; border: 1.5px solid var(--surface-3); }
+      .toc-link.toc-active { border-color: var(--blue-500); }
+    }
+
+    @media (max-width: 600px) {
+      .info-grid { grid-template-columns: 1fr; }
+      .desc-entry-header { align-items: flex-start; }
+      .desc-entry-logo { width: 44px; height: 44px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══ NAVBAR ════════════════════════════════════════════════════ -->
+<nav class="site-nav" role="navigation" aria-label="Main navigation">
+  <a class="nav-brand" href="index.html" aria-label="Simi Volunteering home">
+    <div style="width:36px;height:36px;border-radius:50%;background:var(--blue-500);display:flex;align-items:center;justify-content:center;color:white;font-weight:700;font-size:16px;flex-shrink:0;" aria-hidden="true">SV</div>
+    Simi Volunteering
+  </a>
+  <nav class="nav-links" role="menubar">
+    <a class="nav-link" href="index.html" data-page="index.html" role="menuitem">Home</a>
+    <a class="nav-link" href="volunteer.html" data-page="volunteer.html" role="menuitem">Opportunities</a>
+    <a class="nav-link active" href="volunteer-descriptions.html" data-page="volunteer-descriptions.html" role="menuitem">Descriptions</a>
+    <a class="nav-cta btn" href="volunteer.html" role="menuitem">Browse Catalog →</a>
+  </nav>
+  <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="mobile-nav" role="menu" aria-label="Mobile navigation">
+  <a class="nav-link" href="index.html" data-page="index.html" role="menuitem">Home</a>
+  <a class="nav-link" href="volunteer.html" data-page="volunteer.html" role="menuitem">Opportunities</a>
+  <a class="nav-link active" href="volunteer-descriptions.html" data-page="volunteer-descriptions.html" role="menuitem">Descriptions</a>
+</div>
+
+
+<!-- ══ PAGE HERO ═════════════════════════════════════════════════ -->
+<section class="page-hero" aria-labelledby="page-title">
+  <div class="container page-hero-inner">
+    <p class="page-hero-eyebrow">Detailed Information</p>
+    <h1 class="page-hero-title" id="page-title">Volunteer Descriptions</h1>
+    <p class="page-hero-desc">
+      Everything you need to know before committing to a volunteer role —
+      duties, qualifications, hours, and direct links to official websites.
+    </p>
+  </div>
+</section>
+
+
+<!-- ══ MAIN CONTENT ═══════════════════════════════════════════════ -->
+<main class="section section-sm">
+  <div class="container">
+
+    <!-- Disclaimer -->
+    <div class="disclaimer-banner reveal" role="note" aria-label="Disclaimer">
+     
+      <p class="disclaimer-text">
+        <strong>Disclaimer:</strong> Only the main duties and qualifications are listed. Always check the organization's official website before volunteering. Hope you find a great fit! 
+      </p>
+    </div>
+
+    <div class="desc-layout">
+
+      <!-- ── TOC SIDEBAR ──────────────────────────────────────── -->
+      <aside class="toc-sidebar reveal" aria-label="Table of contents">
+        <div class="toc-title">Organizations</div>
+        <nav class="toc-list" aria-label="Jump to section">
+          <a class="toc-link" href="#sewa">Sewa International</a>
+          <a class="toc-link" href="#youthcouncil">Youth Council</a>
+          <a class="toc-link" href="#garden">Simi at the Garden</a>
+          <a class="toc-link" href="#historical">Historical Society</a>
+          <a class="toc-link" href="#rancho">Rancho Simi Rec.</a>
+          <a class="toc-link" href="#explorers">Police Explorers</a>
+          <a class="toc-link" href="#habitat">Habitat for Humanity</a>
+          <a class="toc-link" href="#salvation">Salvation Army</a>
+          <a class="toc-link" href="#animal">Animal Services</a>
+          <a class="toc-link" href="#need">For the Need</a>
+          <a class="toc-link" href="#tolibrary">TO Library</a>
+          <a class="toc-link" href="#CVHS">Conejo Valley Hist.</a>
+          <a class="toc-link" href="#Moorpark Library">Moorpark Library</a>
+          <a class="toc-link" href="#troops">For the Troops</a>
+          <a class="toc-link" href="#chf">Children's Hunger Fund</a>
+          <a class="toc-link" href="#svyo">Youth Orchestra</a>
+        </nav>
+      </aside>
+
+      <!-- ── DESCRIPTION ENTRIES ─────────────────────────────── -->
+      <div class="desc-entries" role="list">
+
+        <!-- 1. Sewa -->
+        <article class="desc-entry open reveal" id="sewa" role="listitem" aria-label="Sewa International volunteer description">
+          <div class="desc-entry-header" role="button" aria-expanded="true" tabindex="0">
+            <img class="desc-entry-logo" src="https://i0.wp.com/www.globalatlanta.com/wp-content/uploads/Sewa-int-logo.png?fit=1000%2C750&ssl=1" alt="Sewa International logo" loading="lazy"/>
+            <div class="desc-entry-title-wrap">
+              <div class="desc-entry-title">Sewa International</div>
+              <div class="desc-entry-meta">
+                <span class="chip chip-green">Food &amp; Community</span>
+                <span class="chip" style="background:var(--surface-2);color:var(--text-secondary);">All ages</span>
+              </div>
+            </div>
+            <div class="desc-entry-toggle" aria-hidden="true">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m18 15-6-6-6 6"/></svg>
+            </div>
+          </div>
+          <div class="desc-entry-body">
+            <div class="desc-entry-body-inner">
+              <div class="info-grid">
+                <div class="info-block">
+                  <div class="info-block-label">Duties</div>
+                  <div class="info-block-value">Help out wherever needed. Open Tues, Wed, Fri, Sat from 4:30–6:30 PM. Arrive 15 min early to help set up.</div>
+                </div>
+                <div class="info-block">
+                  <div class="info-block-label">Qualifications</div>
+                  <div class="info-block-value">None required. Open to all volunteers willing to help.</div>
+                </div>
+              </div>
+              <a class="desc-website-link" href="https://www.sewausa.org/" target="_blank" rel="noopener noreferrer" aria-label="Visit Sewa International website (opens in new tab)">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+                Visit sewausa.org
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- 2. Youth Council -->
+        <article class="desc-entry reveal reveal-delay-1" id="youthcouncil" role="listitem" aria-label="Youth Council volunteer description">
+          <div class="desc-entry-header" role="button" aria-expanded="false" tabindex="0">
+            <img class="desc-entry-logo" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQe-Y0iNBQ_qjJEqMfvjMP9zpzunU8LcQoLoQ&s" alt="Youth Council" loading="lazy"/>
+            <div class="desc-entry-title-wrap">
+              <div class="desc-entry-title">Simi Valley Youth Council</div>
+              <div class="desc-entry-meta">
+                <span class="chip chip-blue">Youth &amp; Government</span>
+                <span class="chip" style="background:var(--surface-2);color:var(--text-secondary);">Grades 7–12</span>
+              </div>
+            </div>
+            <div class="desc-entry-toggle" aria-hidden="true">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m18 15-6-6-6 6"/></svg>
+            </div>
+          </div>
+          <div class="desc-entry-body">
+            <div class="desc-entry-body-inner">
+              <p class="desc-text">The Simi Valley Youth Council is an advisory board to the City Council on issues affecting youth in the community. Composed of 21 members and up to three alternates, representing every high school and middle school in Simi Valley, as well as the Community at Large.</p>
+              <div class="info-grid">
+                <div class="info-block">
+                  <div class="info-block-label">Qualifications</div>
+                  <div class="info-block-value">Must be in 7th–12th grade in the next school year.</div>
+                </div>
+              </div>
+              <a class="desc-website-link" href="https://www.simivalley.org/departments/city-manager-s-office/community-programs-and-facilities/youth-council" target="_blank" rel="noopener noreferrer" aria-label="Visit Simi Valley Youth Council website (opens in new tab)">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+                Visit simivalley.org
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- 3. Garden -->
+        <article class="desc-entry reveal reveal-delay-2" id="garden" role="listitem" aria-label="Simi at the Garden volunteer description">
+          <div class="desc-entry-header" role="button" aria-expanded="false" tabindex="0">
+            <img class="desc-entry-logo" src="https://static.wixstatic.com/media/9d3e86_cebe272ffe12496c925e31075ca68f79~mv2.jpeg/v1/fit/w_2500,h_1330,al_c/9d3e86_cebe272ffe12496c925e31075ca68f79~mv2.jpeg" alt="Simi at the Garden" loading="lazy"/>
+            <div class="desc-entry-title-wrap">
+              <div class="desc-entry-title">Simi at the Garden</div>
+              <div class="desc-entry-meta">
+                <span class="chip chip-green">Environment</span>
+                <span class="chip" style="background:var(--surface-2);color:var(--text-secondary);">All ages</span>
+              </div>
+            </div>
+            <div class="desc-entry-toggle" aria-hidden="true">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m18 15-6-6-6 6"/></svg>
+            </div>
+          </div>
+          <div class="desc-entry-body">
+            <div class="desc-entry-body-inner">
+              <div class="info-grid">
+                <div class="info-block">
+                  <div class="info-block-label">Duties</div>
+                  <div class="info-block-value">Help out at monthly workdays and garden projects. Visit the website to register your interest in volunteering.</div>
+                </div>
+                <div class="info-block">
+                  <div class="info-block-label">Qualifications</div>
+                  <div class="info-block-value">None required.</div>
+                </div>
+              </div>
+              <a class="desc-website-link" href="https://www.simiatthegarden.org/contact-us" target="_blank" rel="noopener noreferrer" aria-label="Visit Simi at the Garden website (opens in new tab)">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+                Visit simiatthegarden.org
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- 4. Historical Society -->
+        <article class="desc-entry reveal reveal-delay-3" id="historical" role="listitem" aria-label="Simi Valley Historical Society volunteer description">
+          <div class="desc-entry-header" role="button" aria-expanded="false" tabindex="0">
+            <img class="desc-entry-logo" src="https://www.simihistory.com/wp-content/uploads/2017/10/IMG_31542.jpg" alt="Simi Valley Historical Society" loading="lazy"/>
+            <div class="desc-entry-title-wrap">
+              <div class="desc-entry-title">Simi Valley Historical Society</div>
+              <div class="desc-entry-meta">
+                <span class="chip chip-yellow">History &amp; Culture</span>
+                <span class="chip" style="background:var(--surface-2);color:var(--text-secondary);">Ages 12+</span>
+              </div>
+            </div>
+            <div class="desc-entry-toggle" aria-hidden="true">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m18 15-6-6-6 6"/></svg>
+            </div>
+          </div>
+          <div class="desc-entry-body">
+            <div class="desc-entry-body-inner">
+              <div class="info-grid">
+                <div class="info-block">
+                  <div class="info-block-label">Duties</div>
+                  <div class="info-block-value">Provide tours on Simi Valley history, help preserve historic items at Strathern Historical Park, or assist in the gift shop. Mon–Fri 9 AM–3 PM, Sat–Sun 1–4 PM.</div>
+                </div>
+                <div class="info-block">
+                  <div class="info-block-label">Qualifications</div>
+                  <div class="info-block-value">Junior Docent Program: Must be at least 12 years old and interested in the history of Simi Valley.</div>
+                </div>
+              </div>
+              <a class="desc-website-link" href="https://www.simihistory.com/" target="_blank" rel="noopener noreferrer" aria-label="Visit Simi Valley Historical Society website (opens in new tab)">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+                Visit simihistory.com
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- 5. Rancho Simi -->
+        <article class="desc-entry reveal reveal-delay-4" id="rancho" role="listitem" aria-label="Rancho Simi Recreation volunteer description">
+          <div class="desc-entry-header" role="button" aria-expanded="false" tabindex="0">
+            <img class="desc-entry-logo" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRXQ3X1lm2piQa94Mt6xfgVKpv5rvBnhtfw5w&s" alt="Rancho Simi Recreation" loading="lazy"/>
+            <div class="desc-entry-title-wrap">
+              <div class="desc-entry-title">Rancho Simi Recreation &amp; Park District</div>
+              <div class="desc-entry-meta">
+                <span class="chip chip-blue">Recreation</span>
+                <span class="chip" style="background:var(--surface-2);color:var(--text-secondary);">Ages 12+</span>
+              </div>
+            </div>
+            <div class="desc-entry-toggle" aria-hidden="true">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m18 15-6-6-6 6"/></svg>
+            </div>
+          </div>
+          <div class="desc-entry-body">
+            <div class="desc-entry-body-inner">
+              <div class="info-grid">
+                <div class="info-block">
+                  <div class="info-block-label">Duties</div>
+                  <div class="info-block-value">Assist with special events, office tasks, recreation classes, hiking trails, and preschool/afternoon programs.</div>
+                </div>
+                <div class="info-block">
+                  <div class="info-block-label">Qualifications</div>
+                  <div class="info-block-value">Must be at least 12 years old and complete an orientation available on the website.</div>
+                </div>
+              </div>
+              <a class="desc-website-link" href="https://www.rsrpd.org/" target="_blank" rel="noopener noreferrer" aria-label="Visit Rancho Simi Recreation website (opens in new tab)">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+                Visit rsrpd.org
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- 6. Police Explorers -->
+        <article class="desc-entry reveal reveal-delay-5" id="explorers" role="listitem" aria-label="Police Explorers volunteer description">
+          <div class="desc-entry-header" role="button" aria-expanded="false" tabindex="0">
+            <img class="desc-entry-logo" src="https://images.squarespace-cdn.com/content/v1/5ac1611e710699cf1490a170/1549296603485-WFFLZRTWAPSOLTZ9FC0E/C-158610+Simi+Valley+Police+Department+Medallion+California+AR+f.png" alt="Police Explorers" loading="lazy"/>
+            <div class="desc-entry-title-wrap">
+              <div class="desc-entry-title">Simi Valley Police Explorers</div>
+              <div class="desc-entry-meta">
+                <span class="chip chip-blue">Law Enforcement</span>
+                <span class="chip" style="background:var(--surface-2);color:var(--text-secondary);">14+ / 7th grade</span>
+              </div>
+            </div>
+            <div class="desc-entry-toggle" aria-hidden="true">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m18 15-6-6-6 6"/></svg>
+            </div>
+          </div>
+          <div class="desc-entry-body">
+            <div class="desc-entry-body-inner">
+              <div class="info-grid">
+                <div class="info-block">
+                  <div class="info-block-label">Duties</div>
+                  <div class="info-block-value">Trained in law enforcement areas, assist police at community events, and learn evidence collection and report writing.</div>
+                </div>
+                <div class="info-block">
+                  <div class="info-block-label">Qualifications</div>
+                  <div class="info-block-value">Must attend weekly meetings every Monday at 5:00 PM. Must be at least 14 years old or in 7th grade. Application required.</div>
+                </div>
+              </div>
+              <a class="desc-website-link" href="https://www.svpdexplorers.com/" target="_blank" rel="noopener noreferrer" aria-label="Visit Police Explorers website (opens in new tab)">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+                Visit svpdexplorers.com
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- 7. Habitat for Humanity -->
+        <article class="desc-entry reveal" id="habitat" role="listitem" aria-label="Habitat for Humanity volunteer description">
+          <div class="desc-entry-header" role="button" aria-expanded="false" tabindex="0">
+            <img class="desc-entry-logo" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1HWhkEAOul10OnpVmnDmpF7jgH3yXEDYi4w&s" alt="Habitat for Humanity" loading="lazy"/>
+            <div class="desc-entry-title-wrap">
+              <div class="desc-entry-title">Habitat for Humanity of Ventura County</div>
+              <div class="desc-entry-meta">
+                <span class="chip chip-green">Community</span>
+                <span class="chip" style="background:var(--surface-2);color:var(--text-secondary);">Ages 12+</span>
+              </div>
+            </div>
+            <div class="desc-entry-toggle" aria-hidden="true">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m18 15-6-6-6 6"/></svg>
+            </div>
+          </div>
+          <div class="desc-entry-body">
+            <div class="desc-entry-body-inner">
+              <div class="info-grid">
+                <div class="info-block">
+                  <div class="info-block-label">Duties</div>
+                  <div class="info-block-value">Help at the ReStore, serve as a photographer, or assist at special events. Sign-up required in advance.</div>
+                </div>
+                <div class="info-block">
+                  <div class="info-block-label">Qualifications</div>
+                  <div class="info-block-value">Ages 12–14 may volunteer with a parent/guardian. Must be 14+ to volunteer at ReStore.</div>
+                </div>
+              </div>
+              <a class="desc-website-link" href="https://habitatventura.org/volunteer/" target="_blank" rel="noopener noreferrer" aria-label="Visit Habitat for Humanity Ventura website (opens in new tab)">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+                Visit habitatventura.org
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- 8. Salvation Army -->
+        <article class="desc-entry reveal reveal-delay-1" id="salvation" role="listitem" aria-label="Salvation Army volunteer description">
+          <div class="desc-entry-header" role="button" aria-expanded="false" tabindex="0">
+            <img class="desc-entry-logo" src="https://s3.us-east-1.amazonaws.com/files.galaxydigital.com/4816/agency/112844.jpg?20240812202654?area=agency" alt="The Salvation Army" loading="lazy"/>
+            <div class="desc-entry-title-wrap">
+              <div class="desc-entry-title">The Salvation Army Simi Valley</div>
+              <div class="desc-entry-meta">
+                <span class="chip chip-red">Food &amp; Relief</span>
+                <span class="chip" style="background:var(--surface-2);color:var(--text-secondary);">All ages</span>
+              </div>
+            </div>
+            <div class="desc-entry-toggle" aria-hidden="true">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m18 15-6-6-6 6"/></svg>
+            </div>
+          </div>
+          <div class="desc-entry-body">
+            <div class="desc-entry-body-inner">
+              <div class="info-grid">
+                <div class="info-block">
+                  <div class="info-block-label">Duties</div>
+                  <div class="info-block-value">Prepare food bags during pantry hours for community members in need.</div>
+                </div>
+                <div class="info-block">
+                  <div class="info-block-label">Qualifications</div>
+                  <div class="info-block-value">None required. Just be ready to help wherever needed.</div>
+                </div>
+              </div>
+              <a class="desc-website-link" href="https://simivalley.salvationarmy.org/simi_valley_service_unit/" target="_blank" rel="noopener noreferrer" aria-label="Visit Salvation Army Simi Valley website (opens in new tab)">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+                Visit salvationarmy.org
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- 9. Animal Services -->
+        <article class="desc-entry reveal reveal-delay-2" id="animal" role="listitem" aria-label="Animal Services volunteer description">
+          <div class="desc-entry-header" role="button" aria-expanded="false" tabindex="0">
+            <img class="desc-entry-logo" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTFBBk1cZD3ZWlCmPUZ9jdSTJVA46TunX0OOw&s" alt="Ventura County Animal Services" loading="lazy"/>
+            <div class="desc-entry-title-wrap">
+              <div class="desc-entry-title">Ventura County Animal Services</div>
+              <div class="desc-entry-meta">
+                <span class="chip chip-green">Animals</span>
+                <span class="chip" style="background:var(--surface-2);color:var(--text-secondary);">Ages 13+</span>
+              </div>
+            </div>
+            <div class="desc-entry-toggle" aria-hidden="true">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m18 15-6-6-6 6"/></svg>
+            </div>
+          </div>
+          <div class="desc-entry-body">
+            <div class="desc-entry-body-inner">
+              <div class="info-grid">
+                <div class="info-block">
+                  <div class="info-block-label">Duties</div>
+                  <div class="info-block-value">Animal care, fundraising, and helping staff with various tasks at the county shelter.</div>
+                </div>
+                <div class="info-block">
+                  <div class="info-block-label">Qualifications</div>
+                  <div class="info-block-value">Minimum age 13. Parent/guardian permission required. Must follow training protocols.</div>
+                </div>
+              </div>
+              <a class="desc-website-link" href="https://www.vcas.us/volunteer/" target="_blank" rel="noopener noreferrer" aria-label="Visit Ventura County Animal Services website (opens in new tab)">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+                Visit vcas.us
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- 10. For the Need Foundation -->
+        <article class="desc-entry reveal reveal-delay-3" id="need" role="listitem" aria-label="For the Need Foundation volunteer description">
+          <div class="desc-entry-header" role="button" aria-expanded="false" tabindex="0">
+            <img class="desc-entry-logo" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQtd4kVyudr5ZnlMWnTqyVKcRCTDtis_kad7g&s" alt="For the Need Foundation" loading="lazy"/>
+            <div class="desc-entry-title-wrap">
+              <div class="desc-entry-title">For the Need Foundation</div>
+              <div class="desc-entry-meta">
+                <span class="chip chip-blue">Community</span>
+                <span class="chip" style="background:var(--surface-2);color:var(--text-secondary);">Ages 13+</span>
+              </div>
+            </div>
+            <div class="desc-entry-toggle" aria-hidden="true">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m18 15-6-6-6 6"/></svg>
+            </div>
+          </div>
+          <div class="desc-entry-body">
+            <div class="desc-entry-body-inner">
+              <div class="info-grid">
+                <div class="info-block">
+                  <div class="info-block-label">Duties</div>
+                  <div class="info-block-value">Attend volunteering events posted on the website. Duties vary depending on the event.</div>
+                </div>
+                <div class="info-block">
+                  <div class="info-block-label">Qualifications</div>
+                  <div class="info-block-value">Minimum age 13.</div>
+                </div>
+              </div>
+              <a class="desc-website-link" href="https://fortheneed.org/bowandarrow/" target="_blank" rel="noopener noreferrer" aria-label="Visit For the Need Foundation website (opens in new tab)">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+                Visit fortheneed.org
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- 11. Thousand Oaks Library -->
+        <article class="desc-entry reveal reveal-delay-4" id="tolibrary" role="listitem" aria-label="Thousand Oaks Library volunteer description">
+          <div class="desc-entry-header" role="button" aria-expanded="false" tabindex="0">
+            <img class="desc-entry-logo" src="https://assets.procurement.opengov.com/logo-uploads/352f546a-849f-4847-a87c-795949695fc2_500x500_CTO_Logo.png" alt="Thousand Oaks Library" loading="lazy"/>
+            <div class="desc-entry-title-wrap">
+              <div class="desc-entry-title">Thousand Oaks Library</div>
+              <div class="desc-entry-meta">
+                <span class="chip chip-yellow">Education</span>
+                <span class="chip" style="background:var(--surface-2);color:var(--text-secondary);">Ages 13+</span>
+              </div>
+            </div>
+            <div class="desc-entry-toggle" aria-hidden="true">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m18 15-6-6-6 6"/></svg>
+            </div>
+          </div>
+          <div class="desc-entry-body">
+            <div class="desc-entry-body-inner">
+              <div class="info-grid">
+                <div class="info-block">
+                  <div class="info-block-label">Duties</div>
+                  <div class="info-block-value">Various opportunities including events, teen volunteer programs, and more. Duties vary by event.</div>
+                </div>
+                <div class="info-block">
+                  <div class="info-block-label">Qualifications</div>
+                  <div class="info-block-value">Minimum age 13.</div>
+                </div>
+              </div>
+              <a class="desc-website-link" href="https://www.tolibrary.org/teens/teen-volunteers" target="_blank" rel="noopener noreferrer" aria-label="Visit Thousand Oaks Library teen volunteers page (opens in new tab)">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+                Visit tolibrary.org
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- 12. CVHS -->
+        <article class="desc-entry reveal reveal-delay-5" id="CVHS" role="listitem" aria-label="Conejo Valley Historical Society volunteer description">
+          <div class="desc-entry-header" role="button" aria-expanded="false" tabindex="0">
+            <img class="desc-entry-logo" src="https://www.volunteermatch.org/images/gallery/88043777-FB2F-C477-C7FD-780D74A25D12_m?ts=1502301487000" alt="Conejo Valley Historical Society" loading="lazy"/>
+            <div class="desc-entry-title-wrap">
+              <div class="desc-entry-title">Conejo Valley Historical Society</div>
+              <div class="desc-entry-meta">
+                <span class="chip chip-yellow">History</span>
+                <span class="chip" style="background:var(--surface-2);color:var(--text-secondary);">Ages 10+</span>
+              </div>
+            </div>
+            <div class="desc-entry-toggle" aria-hidden="true">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m18 15-6-6-6 6"/></svg>
+            </div>
+          </div>
+          <div class="desc-entry-body">
+            <div class="desc-entry-body-inner">
+              <div class="info-grid">
+                <div class="info-block">
+                  <div class="info-block-label">Duties</div>
+                  <div class="info-block-value">Greet visitors, help in the office and gift shop, and assist with tours at the Stagecoach Inn Museum.</div>
+                </div>
+                <div class="info-block">
+                  <div class="info-block-label">Qualifications</div>
+                  <div class="info-block-value">Minimum age 10.</div>
+                </div>
+              </div>
+              <a class="desc-website-link" href="https://stagecoachinnmuseum.com/new-page-1" target="_blank" rel="noopener noreferrer" aria-label="Visit Conejo Valley Historical Society website (opens in new tab)">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+                Visit stagecoachinnmuseum.com
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- 13. Moorpark Library -->
+        <article class="desc-entry reveal" id="Moorpark Library" role="listitem" aria-label="Moorpark Library volunteer description">
+          <div class="desc-entry-header" role="button" aria-expanded="false" tabindex="0">
+            <img class="desc-entry-logo" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQFjhbmEt27pReH3k3dUHhAvzlbd87K3aZf1g&s" alt="Moorpark Library" loading="lazy"/>
+            <div class="desc-entry-title-wrap">
+              <div class="desc-entry-title">Moorpark Library</div>
+              <div class="desc-entry-meta">
+                <span class="chip chip-yellow">Education</span>
+                <span class="chip" style="background:var(--surface-2);color:var(--text-secondary);">Grade 6+</span>
+              </div>
+            </div>
+            <div class="desc-entry-toggle" aria-hidden="true">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m18 15-6-6-6 6"/></svg>
+            </div>
+          </div>
+          <div class="desc-entry-body">
+            <div class="desc-entry-body-inner">
+              <div class="info-grid">
+                <div class="info-block">
+                  <div class="info-block-label">Duties</div>
+                  <div class="info-block-value">Organize shelves, volunteer at events, give book recommendations, and other miscellaneous tasks as requested.</div>
+                </div>
+                <div class="info-block">
+                  <div class="info-block-label">Qualifications</div>
+                  <div class="info-block-value">Book recommendations: 6th grade+. Event volunteering and shelving: 7th grade+.</div>
+                </div>
+              </div>
+              <a class="desc-website-link" href="https://www.tolibrary.org/teens/teen-volunteers" target="_blank" rel="noopener noreferrer" aria-label="Visit Moorpark Library website (opens in new tab)">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+                Visit tolibrary.org
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- 14. For the Troops -->
+        <article class="desc-entry reveal reveal-delay-1" id="troops" role="listitem" aria-label="For the Troops Foundation volunteer description">
+          <div class="desc-entry-header" role="button" aria-expanded="false" tabindex="0">
+            <img class="desc-entry-logo" src="https://www.forthetroops.org/wp-content/uploads/2022/01/forthetroops-logo.jpg" alt="For the Troops Foundation" loading="lazy"/>
+            <div class="desc-entry-title-wrap">
+              <div class="desc-entry-title">For the Troops Foundation Simi Valley</div>
+              <div class="desc-entry-meta">
+                <span class="chip chip-red">Military Support</span>
+                <span class="chip" style="background:var(--surface-2);color:var(--text-secondary);">Ages 12+</span>
+              </div>
+            </div>
+            <div class="desc-entry-toggle" aria-hidden="true">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m18 15-6-6-6 6"/></svg>
+            </div>
+          </div>
+          <div class="desc-entry-body">
+            <div class="desc-entry-body-inner">
+              <div class="info-grid">
+                <div class="info-block">
+                  <div class="info-block-label">Duties</div>
+                  <div class="info-block-value">Write notes to soldiers, fill up care boxes, create flyers, and other supportive tasks for active-duty military.</div>
+                </div>
+                <div class="info-block">
+                  <div class="info-block-label">Qualifications</div>
+                  <div class="info-block-value">Minimum age 12.</div>
+                </div>
+              </div>
+              <a class="desc-website-link" href="https://www.forthetroops.org/" target="_blank" rel="noopener noreferrer" aria-label="Visit For the Troops Foundation website (opens in new tab)">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+                Visit forthetroops.org
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- 15. Children's Hunger Fund -->
+        <article class="desc-entry reveal reveal-delay-2" id="chf" role="listitem" aria-label="Children's Hunger Fund volunteer description">
+          <div class="desc-entry-header" role="button" aria-expanded="false" tabindex="0">
+            <img class="desc-entry-logo" src="https://cdn.greatnonprofits.org/images/logos/CHF_Logo_square_301U-020818-155850.jpg" alt="Children's Hunger Fund" loading="lazy"/>
+            <div class="desc-entry-title-wrap">
+              <div class="desc-entry-title">Children's Hunger Fund</div>
+              <div class="desc-entry-meta">
+                <span class="chip chip-red">Food</span>
+                <span class="chip" style="background:var(--surface-2);color:var(--text-secondary);">w/ parent/guardian</span>
+              </div>
+            </div>
+            <div class="desc-entry-toggle" aria-hidden="true">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m18 15-6-6-6 6"/></svg>
+            </div>
+          </div>
+          <div class="desc-entry-body">
+            <div class="desc-entry-body-inner">
+              <div class="info-grid">
+                <div class="info-block">
+                  <div class="info-block-label">Duties</div>
+                  <div class="info-block-value">Pack resource boxes to give to churches that distribute them to families in need in the community.</div>
+                </div>
+                <div class="info-block">
+                  <div class="info-block-label">Qualifications</div>
+                  <div class="info-block-value">Must volunteer with a parent or guardian present.</div>
+                </div>
+              </div>
+              <a class="desc-website-link" href="https://volunteer.childrenshungerfund.org/opportunity/a1APH000001O09Z/volunteering-at-the-chf-distribution-center-in-sylmar-ca-fy2025" target="_blank" rel="noopener noreferrer" aria-label="Visit Children's Hunger Fund website (opens in new tab)">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+                Visit childrenshungerfund.org
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- 16. SVYO -->
+        <article class="desc-entry reveal reveal-delay-3" id="svyo" role="listitem" aria-label="Simi Valley Youth Orchestra volunteer description">
+          <div class="desc-entry-header" role="button" aria-expanded="false" tabindex="0">
+            <img class="desc-entry-logo" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMI2cJw81fMGIto-aSqw7zZwU9PD_Rlx_gQaa2rkgrIDSPmHdICPVsP94h7BD8OGe02XE&usqp=CAU" alt="Simi Valley Youth Orchestra" loading="lazy"/>
+            <div class="desc-entry-title-wrap">
+              <div class="desc-entry-title">Simi Valley Youth Orchestra (SVYO)</div>
+              <div class="desc-entry-meta">
+                <span class="chip chip-blue">Arts &amp; Music</span>
+                <span class="chip" style="background:var(--surface-2);color:var(--text-secondary);">Under 19</span>
+              </div>
+            </div>
+            <div class="desc-entry-toggle" aria-hidden="true">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m18 15-6-6-6 6"/></svg>
+            </div>
+          </div>
+          <div class="desc-entry-body">
+            <div class="desc-entry-body-inner">
+              <p class="desc-text">SVYO is all about helping young musicians grow — both as artists and as people. Inspiring a love of music, building lasting skills, and creating a space where discipline meets the joy of making music. An incredible journey of musical discovery, growth, and excellence.</p>
+              <div class="info-grid">
+                <div class="info-block">
+                  <div class="info-block-label">Qualifications</div>
+                  <div class="info-block-value">Must be 19 years old or younger and successfully audition for a position in the orchestra.</div>
+                </div>
+              </div>
+              <a class="desc-website-link" href="https://www.svyo.net/" target="_blank" rel="noopener noreferrer" aria-label="Visit Simi Valley Youth Orchestra website (opens in new tab)">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+                Visit svyo.net
+              </a>
+            </div>
+          </div>
+        </article>
+
+      </div><!-- /desc-entries -->
+    </div><!-- /desc-layout -->
+  </div>
+</main>
+
+
+<!-- ══ FOOTER ════════════════════════════════════════════════════ -->
+<footer class="site-footer" role="contentinfo">
+  <div class="container">
+    <div class="footer-inner">
+      <div>
+        <div class="footer-brand">
+          <div style="width:32px;height:32px;border-radius:50%;background:var(--blue-500);display:flex;align-items:center;justify-content:center;color:white;font-weight:700;font-size:14px;" aria-hidden="true">SV</div>
+          Simi Volunteering
+        </div>
+        <p class="footer-tagline">Connecting Simi Valley residents with volunteer opportunities that make a real difference.</p>
+      </div>
+      <div>
+        <div class="footer-col-title">Website</div>
+        <nav class="footer-links" aria-label="Footer navigation">
+          <a class="footer-link" href="index.html">Home</a>
+          <a class="footer-link" href="volunteer.html">Volunteer Opportunities</a>
+          <a class="footer-link" href="volunteer-descriptions.html">Volunteer Descriptions</a>
+        </nav>
+      </div>
+      <div>
+        <div class="footer-col-title">Contact</div>
+        <div class="footer-links">
+          <span style="font-size:14px;color:var(--text-secondary);">Created by James LeQuang</span>
+          <a class="footer-link" href="mailto:j.lequang229959@simivalleyusd.org">j.lequang229959@simivalleyusd.org</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">2024 Simi Volunteering. Made for the community.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="scripts.js"></script>
+<script>
+  // ── Accordion expand/collapse ──────────────────────────────────
+  document.querySelectorAll('.desc-entry-header').forEach(header => {
+    header.addEventListener('click', () => {
+      const entry = header.closest('.desc-entry');
+      const isOpen = entry.classList.contains('open');
+      const expanded = !isOpen;
+
+      // Close all others
+      document.querySelectorAll('.desc-entry.open').forEach(e => {
+        if (e !== entry) {
+          e.classList.remove('open');
+          e.querySelector('.desc-entry-header').setAttribute('aria-expanded', 'false');
+        }
+      });
+
+      // Toggle this one
+      entry.classList.toggle('open', expanded);
+      header.setAttribute('aria-expanded', expanded);
+    });
+
+    // Keyboard support
+    header.addEventListener('keydown', e => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        header.click();
+      }
+    });
+  });
+
+  // ── Active TOC link on scroll ──────────────────────────────────
+  const sections = document.querySelectorAll('.desc-entry[id]');
+  const tocLinks = document.querySelectorAll('.toc-link');
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const id = entry.target.id;
+        tocLinks.forEach(link => {
+          const active = link.getAttribute('href') === `#${id}`;
+          link.classList.toggle('toc-active', active);
+        });
+      }
+    });
+  }, { rootMargin: '-15% 0px -70% 0px' });
+
+  sections.forEach(s => observer.observe(s));
+
+  // Auto-open if hash matches
+  if (location.hash) {
+    const target = document.querySelector(location.hash);
+    if (target) {
+      target.classList.add('open');
+      const h = target.querySelector('.desc-entry-header');
+      if (h) h.setAttribute('aria-expanded', 'true');
+    }
+  }
+</script>
+</body>
+</html>
+
