@@ -93,6 +93,13 @@ document.addEventListener('DOMContentLoaded', () => {
   const filterBtns = document.querySelectorAll('.filter-btn');
   const volCards = document.querySelectorAll('.vol-card');
 
+  function updateResultsCount() {
+    const countEl = document.getElementById('results-count');
+    if (!countEl) return;
+    const visible = [...volCards].filter(c => c.style.display !== 'none').length;
+    countEl.textContent = `Showing ${visible} opportunit${visible === 1 ? 'y' : 'ies'}`;
+  }
+
   function filterCards() {
     const q = searchInput ? searchInput.value.toLowerCase() : '';
     const active = document.querySelector('.filter-btn.active');
@@ -110,6 +117,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const visible = [...volCards].filter(c => c.style.display !== 'none').length;
     const emptyState = document.getElementById('empty-state');
     if (emptyState) emptyState.style.display = visible === 0 ? 'flex' : 'none';
+
+    updateResultsCount();
   }
 
   if (searchInput) {
@@ -123,6 +132,8 @@ document.addEventListener('DOMContentLoaded', () => {
       filterCards();
     });
   });
+
+  updateResultsCount();
 
 });
 
